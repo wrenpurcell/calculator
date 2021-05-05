@@ -1,0 +1,8 @@
+start with 0 on screen
+click number button(s) to make first number 
+click operation button 
+click number buttons to make second number
+if user presses another operation button, 
+    do first calculation and show result on screen 
+
+    
