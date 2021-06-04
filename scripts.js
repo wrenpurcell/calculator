@@ -10,20 +10,23 @@ document.addEventListener("DOMContentLoaded", function () {
         let currentOperator = null;
         let equalsButton = document.querySelector('#equals-button');
         let clearButton = document.querySelector('#clear-button');
+        let decimalPoint = document.querySelector('#decimal');
         let result;
+        let backspace = document.querySelector('#delete');
 
         numberButtons.forEach((button) =>
             button.addEventListener("click", () => concatNumber(button.textContent))
         );
 
         operateButtons.forEach((button) =>
-            button.addEventListener("click", () => selectOperation(button.innerHTML))
+            button.addEventListener("click", () => selectOperation(button.value))
         );
 
         equalsButton.addEventListener('click', () => {
             if (currentOperator !== null) {
                 console.log(`first number is: ${firstNum}, second number is ${secondNum}`);
                 result = operate(currentOperator, firstNum, secondNum);
+                result = Math.round(result * 1000) / 1000;
                 currentOperator = null;
             }
         });
@@ -34,6 +37,18 @@ document.addEventListener("DOMContentLoaded", function () {
             clearScreen();
         });
 
+        decimalPoint.addEventListener('click', () => {
+            if(screen.textContent.includes('.')){
+                console.log(screen.textContent)
+            }
+            else {
+            screen.textContent += '.';
+            }
+        });
+
+        backspace.addEventListener('click', ()=>{
+            screen.textContent = screen.textContent.toString().slice(0, -1);
+        });
 
         function concatNumber(number) {
             if (screen.textContent === "0" || isNaN(screen.textContent)) {
@@ -49,15 +64,14 @@ document.addEventListener("DOMContentLoaded", function () {
             if (firstNum) {
                 secondNum = parseFloat(screen.textContent);
             }
-            else {
-                firstNum = parseFloat(screen.textContent);
-            }
+      
         }
 
         function selectOperation(operator) {
             if (currentOperator !== null && firstNum && secondNum) {
                 screen.textContent = operate(currentOperator, firstNum, secondNum);
             }
+            firstNum = parseFloat(screen.textContent);
             currentOperator = operator;
             screen.textContent = currentOperator;
         }
@@ -66,12 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
             screen.textContent = '';
 
         }
-
-
-
-
-
-
 
         function add(a, b) {
             return a + b;
@@ -85,6 +93,7 @@ document.addEventListener("DOMContentLoaded", function () {
         function divide(a, b) {
             return a / b;
         }
+       
         function operate(operator, a, b) {
 
             operator === '+' ? result = add(a, b) :
@@ -94,8 +103,9 @@ document.addEventListener("DOMContentLoaded", function () {
                             console.log('error');
             firstNum = result;
             secondNum = 0;
-            screen.textContent = result;
-            return result;
+            let roundedResult = Math.round(result * 1000) / 1000;
+            screen.textContent = roundedResult;
+            return roundedResult;
         }
 
     }
