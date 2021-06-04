@@ -3,43 +3,50 @@
 
 <head>
   <meta charset="utf-8">
-  <title>YOUR TITLE HERE</title>
+  <title>Calculator</title>
   <link  rel="stylesheet" type="text/css" href="styles.css">
   <script src="scripts.js"></script>
 </head>
 
 <body>
-  
+  <div id="calculator-container">
   <div id="calculator">
     <div id="screen"></div>
     <button class="sign" id="clear-button">AC</button>
-    <button class="sign" id="negative">+/-</button>
-    <button class="sign" id="percent">%</button>
-    <button class="operator">/</button>
+    <button class="sign" id="delete"><img src="https://img.icons8.com/android/72/000000/clear-symbol.png"/></button>
+    <!-- <button class="sign" id="negative">+/-</button>
+    <button class="sign" id="percent">%</button> -->
+    
 
     <button class="number">7</button>
     <button class="number">8</button>
     <button class="number">9</button>
-    <button class="operator">*</button>
+    <button class="operator" value="/"><img src="https://img.icons8.com/metro/96/000000/divide.png"/></button>
+
+    
 
     <button class="number">4</button>
     <button class="number">5</button>
     <button class="number">6</button>
-    <button class="operator">-</button>
+    <button class="operator" value="*"><img src="https://img.icons8.com/metro/96/000000/multiply.png"/></button>
+    
 
     <button class="number">1</button>
     <button class="number">2</button>
     <button class="number">3</button>
-    <button class="operator">+</button>
+    <button class="operator" value="-"><img src="https://img.icons8.com/android/96/000000/minus.png"/></button>
+    
 
     <button class="number" id="zero">0</button>
+    
     <button class="sign" id="decimal">.</button>
     <button id="equals-button">=</button>
+    <button class="operator" value="+"><img src="https://img.icons8.com/material-sharp/96/000000/plus-math--v1.png"/></button>
     
 
 
   </div>
-
+</div>
 </body>
 
 </html>
