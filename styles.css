@@ -1,37 +1,80 @@
 body {
-    background-color: rgb(200, 255, 145);
+
     font-family: Helvetica, sans-serif;
+   
+   
 }
 
 #calculator {
 
     display: grid;
-    grid-template-columns: repeat(4, minmax(80px, 20%));
-    grid-template-rows: repeat(5, minmax(80px, 1vh));
-    gap: 2px;
- 
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(5, 80px);
+    gap: 10px; 
+    margin: 0 auto;
 }
 
 #calculator > * {
-    font-size: 3rem;
+    font-size: 3em;
 }
 
+#calculator-container {
+    display: flex;
+    background-color: darkgray;
+    margin: 30px auto;
+    max-width: 360px;
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px black solid;
+}
 
 #screen {
     grid-column: 1 / -1;
     background-color: lightgray;
-    border-radius: 4px;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: flex-end;
     padding: 5px;
-    font-size: 5.25em;
+    font-size: 4em;
     font-weight: initial;
     margin: 5px;
+    border: 2px black solid;
     
 }
 
-button#zero {
+button{
+    border-radius: 8px;
+    box-shadow: none;
+    border: 2px black solid;
+ 
+}
+#clear-button {
     grid-column: span 2;
+}
+
+button#delete {
+    grid-column: span 2;
+    align-items: center;
+}
+
+button.operator{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button.sign{
+   
+}
+button.operator img{
+    height: 40px;
+}
+
+button.number {
+    color: white;
+    background-color: black;
+    border: 2px black solid;
 }
